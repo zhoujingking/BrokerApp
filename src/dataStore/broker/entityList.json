@@ -1,10 +1,42 @@
 [
   {
     "tradeCenter": "sh",
-    "code": "600030"
+    "code": "600030",
+    "name": "中信证券"
   },
   {
     "tradeCenter": "sh",
-    "code": "601066"
-  }
+    "code": "601066",
+    "name": "中信建投"
+  },
+  {
+    "tradeCenter": "sh",
+    "code": "601995",
+    "name": "中金公司"
+  },
+  {
+    "tradeCenter": "sh",
+    "code": "601688",
+    "name": "华泰证券"
+  },
+  {
+    "tradeCenter": "sh",
+    "code": "601211",
+    "name": "国泰君安"
+  },
+  {
+    "tradeCenter": "sz",
+    "code": "300033",
+    "name": "同花顺"
+  },
+  {
+    "tradeCenter": "sz",
+    "code": "300059",
+    "name": "东方财富"
+  },
+  {
+    "tradeCenter": "sz",
+    "code": "002670",
+    "name": "国盛金控"
+  },
 ]

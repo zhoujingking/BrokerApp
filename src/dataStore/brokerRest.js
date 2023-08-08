@@ -1,4 +1,3 @@
-import axios from 'axios';
 import entityList from './broker/entityList.json'
 
 const getBrokerEntityList = async () => {
