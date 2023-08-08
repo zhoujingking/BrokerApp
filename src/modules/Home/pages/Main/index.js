@@ -1,14 +1,44 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { FlatList, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import EntityKGraph from '../../../../core/EntityKGraph';
+import { getBrokerEntityList } from '../../../../dataStore/brokerRest';
 
 function Main(props) {
+  const [entityList, setEntityList] = useState([]);
+
+  useEffect(() => {
+    getBrokerEntityList().then(data => {
+      setEntityList(data);
+    })
+  }, []);
+
+  const renderItem = ({ item }) => {
+    return (
+      <EntityKGraph 
+        containerStyle={{height: 200}}
+        type="daily"
+        code={item.code}
+        tradeCenter={item.tradeCenter}
+      />
+    )
+  };
+
+  const SeperatorComp = () => {
+    return <View style={{height: 16}}/>
+  }
+  
   return (
-    <View>
-      <Text>Main</Text>
-    </View>
+    <SafeAreaView style={{
+      flex: 1
+    }}>
+      <FlatList 
+        data={entityList}
+        renderItem={renderItem}
+        ItemSeparatorComponent={SeperatorComp}
+      />
+    </SafeAreaView>
   );
 }
-Main.defaultProps={};
-Main.propTypes={};
+
 export default Main;
