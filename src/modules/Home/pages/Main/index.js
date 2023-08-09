@@ -29,12 +29,19 @@ const routes = [
 function Main(props) {
   const [entityList, setEntityList] = useState([]);
   const [index, setIndex] = useState(1);
+  const isRefreshing = false;
 
   useEffect(() => {
     getBrokerEntityList().then(data => {
       setEntityList(data);
     })
   }, []);
+
+  const onRefresh = () => {
+    getBrokerEntityList().then(data => {
+      setEntityList(data);
+    })
+  }
 
   const renderItem = ({ item }, type) => {
     return (
@@ -76,6 +83,8 @@ function Main(props) {
                 data={entityList}
                 renderItem={(event) => renderItem(event, route.key)}
                 ItemSeparatorComponent={SeperatorComp}
+                refreshing={isRefreshing}
+                onRefresh={onRefresh}
               />
             </View>
           )
